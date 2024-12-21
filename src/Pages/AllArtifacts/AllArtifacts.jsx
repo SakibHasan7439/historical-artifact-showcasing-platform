@@ -1,10 +1,10 @@
 
-const Home = () => {
+const AllArtifacts = () => {
     return (
         <div className="max-w-7xl w-full mx-auto">
-            This is home section
+            al artifacts...
         </div>
     );
 };
 
-export default Home;
+export default AllArtifacts;
