@@ -1,6 +1,21 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Nav = () => {
+  const { user, userSignOut } = useContext(AuthContext);
+
+  const handleSubmitSignOut = () =>{
+    userSignOut()
+    .then(()=>{
+      toast.success("Signed Out Successfully");
+    })
+    .catch((err)=>{
+      toast.error(err.message);
+    })
+  }
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -40,27 +55,27 @@ const Nav = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <div className="dropdown dropdown-end">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
-          <img
-            alt="Tailwind CSS Navbar component"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-        </div>
-      </div>
-      <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li>
-          <a className="justify-between">
-            Profile
-            <span className="badge">New</span>
-          </a>
-        </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
-      </ul>
-        </div>
+          {
+            user ? <>    
+              <div className="dropdown dropdown-end">
+            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full tooltip tooltip-right" data-tip={user?.displayName}>
+                <img
+                  alt="user image"
+                  src={user?.photoURL} />
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm gap-4 dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+              <Link>My Artifacts</Link>
+              <Link>Liked Artifacts</Link>
+            </ul>
+              </div>
+              <button onClick={handleSubmitSignOut} className="btn">Logout</button>
+            </>         
+            : <Link to={"/signin"} className="btn">Signin</Link>
+          }
       </div>
     </div>
   );
