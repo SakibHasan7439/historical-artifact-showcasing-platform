@@ -27,6 +27,7 @@ const Artifact_details = () => {
                     <p><strong>Discover Time:</strong> {discover_time}</p>
                     <p><strong>Present Location:</strong> {present_location}</p>
                     <p><strong>Historical Context:</strong> {historical_context}</p>
+                    <p><strong>Total Like: </strong>{like_count}</p>
                 </div>
             </div>
         </div>

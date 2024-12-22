@@ -18,7 +18,7 @@ const Nav = () => {
   }
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-[#786655da]">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -50,9 +50,9 @@ const Nav = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu gap-6 menu-horizontal px-1">
-            <NavLink to={"/"}>Home</NavLink>
-            <NavLink to={"/all-artifacts"}>All Artifacts</NavLink>
-            <NavLink to={"/add-artifacts"}>Add Artifact</NavLink>
+            <NavLink to={"/"} className={"md:text-lg text-white"}>Home</NavLink>
+            <NavLink to={"/all-artifacts"} className={"md:text-lg text-white"}>All Artifacts</NavLink>
+            <NavLink to={"/add-artifacts"} className={"md:text-lg text-white"}>Add Artifact</NavLink>
         </ul>
       </div>
       <div className="navbar-end">
@@ -68,9 +68,9 @@ const Nav = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm gap-4 z-[100] dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow">
-              <Link>My Artifacts</Link>
-              <Link>Liked Artifacts</Link>
+              className="menu menu-sm gap-2 z-[100] dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow">
+              <Link className="hover:bg-gray-200 p-2" to={"/my-artifacts"}>My Artifacts</Link>
+              <Link className="hover:bg-gray-200 p-2">Liked Artifacts</Link>
             </ul>
               </div>
               <button onClick={handleSubmitSignOut} className="btn">Logout</button>

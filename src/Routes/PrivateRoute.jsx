@@ -10,8 +10,8 @@ const PrivateRoute = ({children}) => {
     const location = useLocation();
 
     if(loading){
-        return <div className="flex items-center justify-center flex-col md:flex-row">
-            <Lottie className="w-full h-[700px]" 
+        return <div className="flex items-center justify-center flex-col mb-6 lg:mb-12">
+            <Lottie className="h-[400px]" 
                 animationData={loadingLottieData}>
             </Lottie>
             <h2 className="text-3xl font-semibold">Loading...</h2>
