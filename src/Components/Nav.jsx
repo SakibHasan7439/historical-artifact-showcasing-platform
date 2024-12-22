@@ -41,9 +41,9 @@ const Nav = () => {
             tabIndex={0}
             className="menu menu-sm gap-4 dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
-            <NavLink>Home</NavLink>
-            <NavLink>All Artifacts</NavLink>
-            <NavLink>Add Artifact</NavLink>
+            <NavLink to={"/"}>Home</NavLink>
+            <NavLink to={"/all-artifacts"}>All Artifacts</NavLink>
+            <NavLink to={"/add-artifacts"}>Add Artifact</NavLink>
           </ul>
         </div>
         <img className="w-24 md:w-48" src={logo} alt="" />
@@ -52,7 +52,7 @@ const Nav = () => {
         <ul className="menu gap-6 menu-horizontal px-1">
             <NavLink to={"/"}>Home</NavLink>
             <NavLink to={"/all-artifacts"}>All Artifacts</NavLink>
-            <NavLink>Add Artifact</NavLink>
+            <NavLink to={"/add-artifacts"}>Add Artifact</NavLink>
         </ul>
       </div>
       <div className="navbar-end">

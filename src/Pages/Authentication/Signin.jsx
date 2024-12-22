@@ -1,11 +1,13 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Signin = () => {
     const { signInUser } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state || "/";
 
     const handleSubmitSignIn = (e) =>{
         e.preventDefault();
@@ -14,10 +16,9 @@ const Signin = () => {
         const password = form.password.value;
 
         signInUser(email, password)
-        .then((user) =>{
+        .then(() =>{
             toast.success("Successfully Signed in");
-            console.log(user);
-            navigate("/");
+            navigate(from);
         })
         .catch((err) =>{
             toast.error(err.message);
