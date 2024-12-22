@@ -4,12 +4,13 @@ import Home from "../Pages/Home/Home";
 import Signin from "../Pages/Authentication/Signin";
 import Register from "../Pages/Authentication/Register";
 import AllArtifacts from "../Pages/AllArtifacts/AllArtifacts";
+import ErrorPage from "../Pages/errorPage/ErrorPage";
 
 const Router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
-        errorElement: <h1>404 error</h1>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",

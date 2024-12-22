@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import logo from "../assets/artifacts_logo.png"
 
 const Nav = () => {
   const { user, userSignOut } = useContext(AuthContext);
@@ -45,7 +46,7 @@ const Nav = () => {
             <NavLink>Add Artifact</NavLink>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <img className="w-24 md:w-48" src={logo} alt="" />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu gap-6 menu-horizontal px-1">
