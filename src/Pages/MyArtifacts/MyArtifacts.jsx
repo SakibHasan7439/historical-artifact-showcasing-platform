@@ -23,7 +23,8 @@ const MyArtifacts = () => {
                 {
                     artifacts.map((artifact) => <MyArtifactsCard 
                         key={artifact._id}
-                        artifact={artifact}>   
+                        artifact={artifact}
+                        fetchAllData={fetchAllData}>   
                     </MyArtifactsCard>)
                 }
             </div>

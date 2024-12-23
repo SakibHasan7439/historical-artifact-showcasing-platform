@@ -2,21 +2,22 @@ import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 const ArtifactCard = ({ artifact }) => {
-    const {name, imageUrl, category, present_location, _id} = artifact;
+    const {name, imageUrl, like_count, category, present_location, _id} = artifact;
   return (
       <div className="card rounded-md p-4 text-white bg-[#705e4c] border col-span-12 md:col-span-6">
         <figure>
-          <img className="h-350px md:h-[500px] rounded-md w-full"
+          <img className="h-[350px] lg:h-[500px] rounded-md w-full"
             src={imageUrl}
             alt="Shoes"
           />
         </figure>
         <div className="card-body">
           <h2 className="card-title text-2xl lg:text-3xl">{name}</h2>
-          <p>Present location: {present_location}</p>
-          <p>Category: {category}</p>
+          <p><strong>Present location</strong>: {present_location}</p>
+          <p><strong>Category</strong>: {category}</p>
+          <div className="px-4 py-2 rounded-full w-[130px] bg-[#C4A484]"> <strong>like count:</strong> { like_count}</div>
           <div className="card-actions justify-end">
-            <Link to={`/artifact-details/${_id}`} className="px-6 py-3 rounded-md hover:bg-[#8c7660] bg-[#C4A484]">Details</Link>
+            <Link to={`/artifact-details/${_id}`} className="px-6 py-3 rounded-md hover:bg-[#8c7660] bg-[#C4A484] shadow-lg">Details</Link>
           </div>
         </div>
       </div>

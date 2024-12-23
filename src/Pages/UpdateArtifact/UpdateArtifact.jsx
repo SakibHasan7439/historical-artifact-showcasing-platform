@@ -1,39 +1,50 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import toast from "react-hot-toast";
+import { useParams } from "react-router-dom";
 import { axiosSecure } from "../../Components/hooks/UseAxiosSecure";
+import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
-const AddArtifacts = () => {
+const UpdateArtifact = () => {
     const { user } = useContext(AuthContext);
+    const [artifactData, setArtifactData] = useState({});
+    const {id} = useParams();
 
-    const handleSubmitAddArtifact = (e) =>{
+    useEffect(()=>{  
+        fetchArtifactData();
+    }, [id]);
+
+    const fetchArtifactData = async() =>{
+        const {data} = await axiosSecure.get(`/artifact/${id}`)
+        setArtifactData(data);
+    }
+
+    const { category, creation_time, discover_time, discoverer, historical_context, imageUrl, name, present_location } = artifactData;
+    
+    const handleSubmitUpdateArtifact = (e) =>{
         e.preventDefault();
         const form = new FormData(e.target);
-        const data = Object.fromEntries(form);
-        const like_count = 0;
-        data.like_count = like_count;
-        console.log(data);
-
+        const formData = Object.fromEntries(form);
         try {
-            axiosSecure.post('/add-artifacts', data);
+            const {data} = axiosSecure.put(`/update-artifact/${id}`, formData);
+            console.log(data);
             Swal.fire({
-                title: "Successfully Added",
-                text: "Data successfully added in the Database",
+                title: "Successfully Updated",
+                text: "Data successfully updated in the Database",
                 icon: "success"
             });
-            
+
         } catch (error) {
             toast.error(error.message);
         }
-        
     }
-
   return (
     <div className="flex justify-center items-center flex-col max-w-4xl w-full mx-auto">
-        <h1 className="text-3xl lg:text-4xl mb-8 text-slate-700 font-bold bg-[#C4A484] px-4 py-2 mt-4 rounded-md">Add Artifacts</h1>
+      <h1 className="text-3xl mt-4 lg:text-5xl mb-8 text-slate-700 font-bold bg-[#C4A484] px-4 py-2 rounded-md">
+        Update Artifacts
+      </h1>
       <div className="card bg-base-100 border w-full">
-        <form onSubmit={handleSubmitAddArtifact} className="card-body">
+        <form onSubmit={handleSubmitUpdateArtifact} className="card-body">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Artifact Name</span>
@@ -41,6 +52,7 @@ const AddArtifacts = () => {
             <input
               type="text"
               placeholder="Artifact Name"
+              defaultValue={name}
               name="name"
               className="input input-bordered"
               required
@@ -53,6 +65,7 @@ const AddArtifacts = () => {
             <input
               type="url"
               placeholder="Artifact image"
+              defaultValue={imageUrl}
               name="imageUrl"
               className="input input-bordered"
               required
@@ -61,7 +74,7 @@ const AddArtifacts = () => {
           <select
             name="category"
             id="category"
-            defaultValue={"Artifact Type"}
+            defaultValue={category}
             className="border p-4 rounded-lg"
           >
             <option>Artifact Type</option>
@@ -77,6 +90,7 @@ const AddArtifacts = () => {
             <textarea
               placeholder="Historical Context"
               name="historical_context"
+              defaultValue={historical_context}
               className="textarea textarea-bordered textarea-lg w-full"
             ></textarea>
           </div>
@@ -88,6 +102,7 @@ const AddArtifacts = () => {
               type="text"
               placeholder="Created At"
               name="creation_time"
+              defaultValue={creation_time}
               className="input input-bordered"
               required
             />
@@ -100,6 +115,7 @@ const AddArtifacts = () => {
               type="text"
               placeholder="Discover time"
               name="discover_time"
+              defaultValue={discover_time}
               className="input input-bordered"
               required
             />
@@ -112,6 +128,7 @@ const AddArtifacts = () => {
               type="text"
               placeholder="Discovered By"
               name="discoverer"
+              defaultValue={discoverer}
               className="input input-bordered"
               required
             />
@@ -124,6 +141,7 @@ const AddArtifacts = () => {
               type="text"
               placeholder="Present Location"
               name="present_location"
+              defaultValue={present_location}
               className="input input-bordered"
               required
             />
@@ -165,4 +183,4 @@ const AddArtifacts = () => {
   );
 };
 
-export default AddArtifacts;
+export default UpdateArtifact;

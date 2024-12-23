@@ -70,7 +70,7 @@ const Nav = () => {
               tabIndex={0}
               className="menu menu-sm gap-2 z-[100] dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow">
               <Link className="hover:bg-gray-200 p-2" to={"/my-artifacts"}>My Artifacts</Link>
-              <Link className="hover:bg-gray-200 p-2">Liked Artifacts</Link>
+              <Link to={"/liked-artifacts"} className="hover:bg-gray-200 p-2">Liked Artifacts</Link>
             </ul>
               </div>
               <button onClick={handleSubmitSignOut} className="btn">Logout</button>
