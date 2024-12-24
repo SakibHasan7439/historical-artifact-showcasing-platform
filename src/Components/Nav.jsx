@@ -3,6 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import logo from "../assets/artifacts_logo.png"
+import { FaSignOutAlt } from "react-icons/fa";
+import "./sharedStyles.css"
 
 const Nav = () => {
   const { user, userSignOut } = useContext(AuthContext);
@@ -39,7 +41,7 @@ const Nav = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm gap-4 dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm gap-4 dropdown-content bg-base-100 rounded-box z-[100] mt-3 w-52 p-2 shadow"
           >
             <NavLink to={"/"}>Home</NavLink>
             <NavLink to={"/all-artifacts"}>All Artifacts</NavLink>
@@ -50,8 +52,8 @@ const Nav = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu gap-6 menu-horizontal px-1">
-            <NavLink to={"/"} className={"md:text-lg text-white"}>Home</NavLink>
-            <NavLink to={"/all-artifacts"} className={"md:text-lg text-white"}>All Artifacts</NavLink>
+            <NavLink to={"/"} className={"md:text-lg border-r-2 pr-5 text-white"}>Home</NavLink>
+            <NavLink to={"/all-artifacts"} className={"md:text-lg border-r-2 pr-5 text-white"}>All Artifacts</NavLink>
             <NavLink to={"/add-artifacts"} className={"md:text-lg text-white"}>Add Artifact</NavLink>
         </ul>
       </div>
@@ -69,11 +71,14 @@ const Nav = () => {
             <ul
               tabIndex={0}
               className="menu menu-sm gap-2 z-[100] dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow">
-              <Link className="hover:bg-gray-200 p-2" to={"/my-artifacts"}>My Artifacts</Link>
-              <Link to={"/liked-artifacts"} className="hover:bg-gray-200 p-2">Liked Artifacts</Link>
+              <Link className="hover:bg-gray-200 p-2 font-semibold" to={"/my-artifacts"}>My Artifacts</Link>
+              <Link to={"/liked-artifacts"} className="hover:bg-gray-200 font-semibold p-2">Liked Artifacts</Link>
             </ul>
               </div>
-              <button onClick={handleSubmitSignOut} className="btn">Logout</button>
+              <button onClick={handleSubmitSignOut} className="btn bg-[#C4A484] hover:bg-[#766656] border-none text-white">
+                Logout
+                <FaSignOutAlt></FaSignOutAlt>
+              </button>
             </>         
             : <Link to={"/signin"} className="btn">Signin</Link>
           }

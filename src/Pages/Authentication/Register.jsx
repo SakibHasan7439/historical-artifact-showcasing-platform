@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const { registerNewUser, updateUserProfile, signWithGoogle } = useContext(AuthContext);
@@ -49,6 +50,9 @@ const Register = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Artifact Tracker | Register</title>
+      </Helmet>
       <div className="card bg-base-100 w-full mb-8 mt-8 lg:mt-16 max-w-sm mx-auto shrink-0 shadow-2xl">
         <form onSubmit={handleSubmitRegister} className="card-body">
           <div className="form-control">

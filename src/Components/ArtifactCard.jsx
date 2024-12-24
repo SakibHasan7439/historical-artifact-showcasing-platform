@@ -17,7 +17,7 @@ const ArtifactCard = ({ artifact }) => {
           <p><strong>Category</strong>: {category}</p>
           <div className="px-4 py-2 rounded-full w-[130px] bg-[#C4A484]"> <strong>like count:</strong> { like_count}</div>
           <div className="card-actions justify-end">
-            <Link to={`/artifact-details/${_id}`} className="px-6 py-3 rounded-md hover:bg-[#8c7660] bg-[#C4A484] shadow-lg">Details</Link>
+            <Link to={`/artifact-details/${_id}`} className="px-6 py-3 rounded-md hover:bg-[#8c7660] bg-[#C4A484] shadow-lg btn-anime">Details</Link>
           </div>
         </div>
       </div>

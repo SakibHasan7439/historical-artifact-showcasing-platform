@@ -1,0 +1,15 @@
+a.active {
+    background-color: rgba(0, 0, 0, 0.279);
+    padding: 6px 12px;
+    border-radius: 10px;
+}
+
+a {
+    padding: 6px 12px;
+}
+
+.btn-anime:hover {
+    transition: all;
+    transition-duration: 200ms;
+    transform: translateY(-8px);
+}

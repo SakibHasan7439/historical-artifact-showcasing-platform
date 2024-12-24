@@ -17,7 +17,7 @@ const LikedArtifactCard = ({artifact}) => {
         <p><strong>present location: </strong>{present_location}</p>
         <div className="px-3 py-2 rounded-full w-[130px] text-white shadow-md shadow-slate-400 bg-[#786655da]"><strong>Like Count: </strong>{like_count}</div>
         <div className="card-actions justify-end">
-        <Link to={`/artifact-details/${_id}`} className="px-4 py-2 rounded-md shadow-md shadow-slate-400 bg-[#786655da] text-white">Details</Link>
+        <Link to={`/artifact-details/${_id}`} className="px-4 py-2 rounded-md shadow-md shadow-slate-400 bg-[#786655da] btn-anime text-white">Details</Link>
         </div>
     </div>
     </div>

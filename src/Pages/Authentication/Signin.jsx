@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
+import { Helmet } from "react-helmet-async";
 
 const Signin = () => {
     const { signInUser, signWithGoogle } = useContext(AuthContext);
@@ -38,6 +39,9 @@ const Signin = () => {
   }
   return (
     <div className="mb-8">
+      <Helmet>
+          <title>Artifact Tracker | SignIn</title>
+      </Helmet>
       <div className="card bg-base-100 w-full mt-8 lg:mt-16 max-w-sm mx-auto shrink-0 border">
       <button onClick={handleGoogleSign} className="btn mx-4 mt-4 justify-center border bg-white flex items-center gap-2 px-4 py-2 rounded-md">
           <p className="flex-grow-0">Sign With Google</p> 

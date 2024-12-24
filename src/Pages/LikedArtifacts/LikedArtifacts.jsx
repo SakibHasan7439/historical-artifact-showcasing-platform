@@ -4,6 +4,7 @@ import useAxiosSecure from "../../Components/hooks/UseAxiosSecure";
 import Lottie from "lottie-react";
 import noData from "../../assets/noData.json"
 import LikedArtifactCard from "../../Components/LikedArtifactCard";
+import { Helmet } from "react-helmet-async";
 
 const LikedArtifacts = () => {
     const [artifacts, setArtifacts] = useState([]);
@@ -22,6 +23,9 @@ const LikedArtifacts = () => {
     console.log(artifacts);
     return (
         <div>
+            <Helmet>
+                <title>Artifact Tracker | Liked Artifacts</title>
+            </Helmet>
             {
                 artifacts.length === 0 ?
                 <Lottie className="w-[80%] md:1/2 lg:w-1/4 mx-auto" animationData={noData}></Lottie> :
