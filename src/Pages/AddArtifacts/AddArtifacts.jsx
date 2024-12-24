@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
-import { axiosSecure } from "../../Components/hooks/UseAxiosSecure";
+import useAxiosSecure from "../../Components/hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
 
 const AddArtifacts = () => {
     const { user } = useContext(AuthContext);
+    const axiosSecure = useAxiosSecure();
 
     const handleSubmitAddArtifact = (e) =>{
         e.preventDefault();
@@ -26,6 +27,7 @@ const AddArtifacts = () => {
         } catch (error) {
             toast.error(error.message);
         }
+        e.target.reset();
         
     }
 

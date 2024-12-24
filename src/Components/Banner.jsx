@@ -11,7 +11,7 @@ import slider3 from "../assets/third_slide.webp";
 
 const Banner = () => {
   return (
-    <div className="container px-6 py-10 mx-auto">
+    <div className="container mx-auto">
       <Swiper
         // install Swiper modules
         spaceBetween={30}

@@ -38,7 +38,7 @@ const Register = () => {
     }
 
     const handleGoogleSign = () =>{
-        signWithGoogle
+        signWithGoogle()
         .then(()=>{
             toast.success("Successfully Signed with Google");
         })
@@ -49,7 +49,7 @@ const Register = () => {
 
   return (
     <div>
-      <div className="card bg-base-100 w-full mt-8 lg:mt-16 max-w-sm mx-auto shrink-0 shadow-2xl">
+      <div className="card bg-base-100 w-full mb-8 mt-8 lg:mt-16 max-w-sm mx-auto shrink-0 shadow-2xl">
         <form onSubmit={handleSubmitRegister} className="card-body">
           <div className="form-control">
             <label className="label">
@@ -103,7 +103,7 @@ const Register = () => {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary mb-2">Register</button>
+            <button className="btn bg-[#786655da] text-white mb-2">Register</button>
             <button onClick={handleGoogleSign} className="btn justify-center border bg-white flex items-center gap-2 px-4 py-2 rounded-md">
                 <p className="flex-grow-0">Sign With Google</p> 
                 <FcGoogle className="text-xl"></FcGoogle>

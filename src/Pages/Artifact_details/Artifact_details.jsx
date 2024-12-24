@@ -1,13 +1,14 @@
 
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { axiosSecure } from "../../Components/hooks/UseAxiosSecure";
+import useAxiosSecure from "../../Components/hooks/UseAxiosSecure";
 import { AiOutlineLike } from "react-icons/ai";
 import { AiFillLike } from "react-icons/ai";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Artifact_details = () => {
+    const axiosSecure = useAxiosSecure();
     const {user} = useContext(AuthContext);
     const [artifactData, setArtifactData] = useState({});
     const [isLiked, setIsLiked] = useState(false);

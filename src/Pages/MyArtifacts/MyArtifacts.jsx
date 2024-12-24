@@ -1,12 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { axiosSecure } from "../../Components/hooks/UseAxiosSecure";
+import useAxiosSecure from "../../Components/hooks/UseAxiosSecure";
 import MyArtifactsCard from "../../Components/MyArtifactsCard";
 
 const MyArtifacts = () => {
     const { user } = useContext(AuthContext);
     const [artifacts, setArtifacts] = useState([]);
-    
+    const axiosSecure = useAxiosSecure();
+
     useEffect(()=>{
         fetchAllData();
     }, [user]);

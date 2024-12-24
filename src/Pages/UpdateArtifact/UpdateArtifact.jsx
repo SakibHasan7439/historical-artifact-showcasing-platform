@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useParams } from "react-router-dom";
-import { axiosSecure } from "../../Components/hooks/UseAxiosSecure";
+import useAxiosSecure from "../../Components/hooks/UseAxiosSecure";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
 const UpdateArtifact = () => {
+  const axiosSecure = useAxiosSecure();
     const { user } = useContext(AuthContext);
     const [artifactData, setArtifactData] = useState({});
     const {id} = useParams();

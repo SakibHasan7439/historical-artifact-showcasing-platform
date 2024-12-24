@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { axiosSecure } from "../../Components/hooks/UseAxiosSecure";
+import useAxiosSecure from "../../Components/hooks/UseAxiosSecure";
 import Lottie from "lottie-react";
 import noData from "../../assets/noData.json"
 import LikedArtifactCard from "../../Components/LikedArtifactCard";
 
 const LikedArtifacts = () => {
     const [artifacts, setArtifacts] = useState([]);
+    const axiosSecure = useAxiosSecure();
+
     const {user} = useContext(AuthContext);
     useEffect(()=>{
         fetchLikedArtifacts()

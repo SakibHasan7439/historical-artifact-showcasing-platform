@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { axiosSecure } from "./hooks/UseAxiosSecure";
+import useAxiosSecure from "./hooks/UseAxiosSecure";
 import FeaturedArtifactInfoCard from "./FeaturedArtifactInfoCard";
 
 const FeaturesArtifacts = () => {
     const [artifacts, setArtifacts] = useState([]);
+    const axiosSecure = useAxiosSecure();
 
     useEffect(()=>{
         fetchFeaturedData();

@@ -3,11 +3,12 @@
 import updatePen from "../assets/pen.png"
 import deleteIcon from "../assets/bin.png"
 import toast from "react-hot-toast";
-import { axiosSecure } from "./hooks/UseAxiosSecure";
+import useAxiosSecure from "./hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 const MyArtifactsCard = ({ artifact, fetchAllData }) => {
+    const axiosSecure = useAxiosSecure();
     const { category, creation_time, discover_time, historical_context, imageUrl, like_count, name, present_location, _id } = artifact;
 
     const handleSubmitDelete = async (_id) =>{

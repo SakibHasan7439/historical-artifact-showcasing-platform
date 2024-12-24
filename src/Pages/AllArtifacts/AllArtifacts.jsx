@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { axiosSecure } from "../../Components/hooks/UseAxiosSecure";
+import useAxiosSecure from "../../Components/hooks/UseAxiosSecure";
 import ArtifactCard from "../../Components/ArtifactCard";
 
 const AllArtifacts = () => {
+    const axiosSecure = useAxiosSecure();
     const [artifacts, setArtifacts] = useState([]);
     const [search, setSearch] = useState('');
     

@@ -2,9 +2,10 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
 
 const Signin = () => {
-    const { signInUser } = useContext(AuthContext);
+    const { signInUser, signWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state || "/";
@@ -14,7 +15,7 @@ const Signin = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-
+        console.log(email, password);
         signInUser(email, password)
         .then(() =>{
             toast.success("Successfully Signed in");
@@ -24,9 +25,25 @@ const Signin = () => {
             toast.error(err.message);
         })
     }
+    
+    const handleGoogleSign = () =>{
+      signWithGoogle()
+      .then(()=>{
+          toast.success("Successfully Signed with Google");
+          navigate(from);
+      })
+      .catch((err)=>{
+          toast.error(err.message);
+      })
+  }
   return (
-    <div>
-      <div className="card bg-base-100 w-full mt-8 lg:mt-16 max-w-sm mx-auto shrink-0 shadow-2xl">
+    <div className="mb-8">
+      <div className="card bg-base-100 w-full mt-8 lg:mt-16 max-w-sm mx-auto shrink-0 border">
+      <button onClick={handleGoogleSign} className="btn mx-4 mt-4 justify-center border bg-white flex items-center gap-2 px-4 py-2 rounded-md">
+          <p className="flex-grow-0">Sign With Google</p> 
+          <FcGoogle className="text-xl"></FcGoogle>
+      </button>
+      <p className="text-center">OR</p>
         <form onSubmit={handleSubmitSignIn} className="card-body">
           <div className="form-control">
             <label className="label">
@@ -54,7 +71,7 @@ const Signin = () => {
             <label className="label"></label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Signin</button>
+            <button className="btn bg-[#786655da] text-white">Signin</button>
           </div>
         </form>
         <p className="text-center py-4">
