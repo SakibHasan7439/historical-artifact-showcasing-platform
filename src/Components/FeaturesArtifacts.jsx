@@ -21,8 +21,8 @@ const FeaturesArtifacts = () => {
     return (
         <div className="p-4 lg:p-8 bg-[#c4a4843b]">
             
-            <div className="max-w-7xl w-full mx-auto">
-                <h1 className="font-playfair h-8 text-3xl text-center mb-6 md:mb-12">
+            <div className="max-w-7xl w-full mx-auto mb-8 md:mb-12">
+                <h1 className="font-playfair h-8 text-3xl text-center mb-6 md:my-12">
                 <Typewriter 
                     words={['Featured Artifacts']}
                     loop={true}
