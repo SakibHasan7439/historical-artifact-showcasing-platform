@@ -16,7 +16,6 @@ const FeaturesArtifacts = () => {
         const {data} = await axiosSecure.get('/features-artifacts');
         setArtifacts(data);
     }
-    console.log(artifacts);
 
     return (
         <div className="p-4 lg:p-8 bg-[#c4a4843b]">
