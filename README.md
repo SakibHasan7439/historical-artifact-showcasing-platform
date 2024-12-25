@@ -1,8 +1,25 @@
-# React + Vite
+Project Name: 
+⚧️**Historical Artifact Tracker**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+purpose:
+♂️ **Showcasing Historical Artifacts with there details and information**
 
-Currently, two official plugins are available:
+➡️live URL: 
+**https://artifacts-tracker.web.app**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+➡️**key features**:
+ 1️⃣JWT(Json Web Token) Implementation 
+ 2️⃣Firebase Authentication
+ 3️⃣User Liked count and tracking user with it
+ 4️⃣Liked contents page
+ 5️⃣Use of different animation like (framer motion)
+
+➡️**NPM packages used in this project**
+    •SweetAlert
+    •Hot Toast
+    •Framer Motion
+    •Lottie React 
+    •React Swiper
+    •Axios
+    •Helmet
+    •TypeWriter
