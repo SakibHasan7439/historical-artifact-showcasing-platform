@@ -12,6 +12,8 @@ const Artifact_details = () => {
     const {user} = useContext(AuthContext);
     const [artifactData, setArtifactData] = useState({});
     const [isLiked, setIsLiked] = useState(false);
+
+
     const {id} = useParams();
     useEffect(()=>{  
         fetchArtifactData();
@@ -22,6 +24,8 @@ const Artifact_details = () => {
         setArtifactData(data);
     }
     const { category, creation_time, discover_time, discoverer, historical_context, imageUrl, like_count, name, present_location, adder_email, _id } = artifactData;
+    console.log(like_count);
+
 
     const handleStatusChange = async(_id, userEmail) =>{ 
         if(user?.email === adder_email) {
@@ -56,6 +60,7 @@ const Artifact_details = () => {
                             <AiFillLike className="cursor-pointer text-3xl md:text-4xl"></AiFillLike> 
                             :<AiOutlineLike className="cursor-pointer text-3xl md:text-4xl"></AiOutlineLike>
                         }
+
                         </button>
                         <p className="pt-2"><strong>Total Like: </strong>{like_count}</p>
                     </div>

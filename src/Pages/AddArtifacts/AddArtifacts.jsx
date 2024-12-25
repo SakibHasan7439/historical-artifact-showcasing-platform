@@ -3,6 +3,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../Components/hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
+import FramerAnimeComponent from "../../Components/FramerAnimeComponent";
 
 const AddArtifacts = () => {
     const { user } = useContext(AuthContext);
@@ -34,7 +35,9 @@ const AddArtifacts = () => {
   return (
     <div className="bg-[#c4a4843b] pb-6 md:pb-12">
       <div className="flex justify-center items-center flex-col max-w-4xl w-full mx-auto">
-          <h1 className="text-3xl lg:text-4xl mb-8 text-slate-700 font-bold bg-[#C4A484] px-4 py-2 mt-4 rounded-md">Add Artifacts</h1>
+          <FramerAnimeComponent>
+            <h1 className="text-3xl lg:text-4xl mb-8 text-slate-700 font-bold bg-[#C4A484] px-4 py-2 mt-4 rounded-md">Add Artifacts</h1>
+          </FramerAnimeComponent>
         <div className="card bg-base-100 border w-full">
           <form onSubmit={handleSubmitAddArtifact} className="card-body">
             <div className="form-control">

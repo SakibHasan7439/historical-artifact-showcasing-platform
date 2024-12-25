@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import FramerAnimeComponent from "../Components/FramerAnimeComponent";
 
 /* eslint-disable react/prop-types */
 const ArtifactCard = ({ artifact }) => {
     const {name, imageUrl, like_count, category, present_location, _id} = artifact;
   return (
-      <div className="card rounded-md p-4 text-white bg-[#705e4c] border col-span-12 md:col-span-6">
+      <FramerAnimeComponent className="col-span-12 md:col-span-6">
+        <div className="card rounded-md p-4 text-white bg-[#705e4c] border">
         <figure>
           <img className="h-[350px] lg:h-[500px] rounded-md w-full"
             src={imageUrl}
@@ -20,7 +22,8 @@ const ArtifactCard = ({ artifact }) => {
             <Link to={`/artifact-details/${_id}`} className="px-6 py-3 rounded-md hover:bg-[#8c7660] bg-[#C4A484] shadow-lg btn-anime">Details</Link>
           </div>
         </div>
-      </div>
+        </div>
+      </FramerAnimeComponent>
   );
 };
 
