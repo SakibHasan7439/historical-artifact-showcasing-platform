@@ -27,6 +27,7 @@ const Artifact_details = () => {
         if(user?.email === adder_email) {
             return toast.error("Can't like your own item");
         }
+
         setIsLiked((previous)=> !previous);
         try {
             await axiosSecure.patch(`/update-like-count/${_id}`,{ userEmail, isLiked: !isLiked})
@@ -35,9 +36,6 @@ const Artifact_details = () => {
             toast.error(error.message);
         }
     }
-
-
-    console.log(isLiked);
 
     return (
         <div className="bg-[#151408c7] text-white p-8">
