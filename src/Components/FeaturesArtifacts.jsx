@@ -9,7 +9,9 @@ const FeaturesArtifacts = () => {
     const axiosSecure = useAxiosSecure();
 
     useEffect(()=>{
-        fetchFeaturedData();
+        setTimeout(() => {
+            fetchFeaturedData();
+        }, 1000);
     }, []);
 
     const fetchFeaturedData = async() =>{

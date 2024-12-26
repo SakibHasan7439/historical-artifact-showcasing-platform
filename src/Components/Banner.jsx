@@ -11,7 +11,7 @@ import slider3 from "../assets/third_slide.webp";
 
 const Banner = () => {
   return (
-    <div className="container mx-auto">
+    <div>
       <Swiper
         // install Swiper modules
         spaceBetween={30}

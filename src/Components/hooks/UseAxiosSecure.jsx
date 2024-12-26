@@ -13,9 +13,9 @@ const useAxiosSecure = () =>{
     const { userSignOut } = useContext(AuthContext);
 
     useEffect(()=>{
-        axiosSecure.interceptors.response.use(response =>{
+        const interceptId = axiosSecure.interceptors.response.use(response =>{
             return response;
-        }, async error =>{
+        }, error =>{
             if(error.response?.status === 401 || error.response?.status === 403){
                 console.log("get out from my site");
                 userSignOut()
@@ -28,7 +28,10 @@ const useAxiosSecure = () =>{
             }
             return Promise.reject(error);
         })
-    },[userSignOut]);
+        return ()=>{
+            axiosSecure.interceptors.response.eject(interceptId);
+        }
+    },[]);
     
 
     return axiosSecure;
