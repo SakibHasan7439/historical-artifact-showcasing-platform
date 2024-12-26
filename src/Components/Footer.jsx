@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/artifacts_logo.png"
 import spinningRock from "../assets/footerRock.png"
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -11,7 +14,12 @@ const Footer = () => {
           Artifacts Tracker Ltd.  
         </p>
         <h6 className="footer-title">Explore The Exclusive Collections</h6>
-          <Link to={"/all-artifacts"} className="px-5 py-3 text-white transition hover:-translate-y-2 hover:bg-[#917b64] duration-200 rounded-md bg-[#C4A484] shadow-md shadow-slate-500">Collections</Link>
+          <div className="flex items-center gap-2">
+            <Link to={"/all-artifacts"} className="px-5 py-3 text-white transition hover:-translate-y-2 hover:bg-[#917b64] duration-200 rounded-md bg-[#C4A484] shadow-md shadow-slate-500">Collections</Link>
+            <FaFacebook className="text-2xl text-[#8c7c6e] cursor-pointer"></FaFacebook>
+            <FaInstagramSquare className="text-2xl text-[#8c7c6e] cursor-pointer"></FaInstagramSquare>
+            <FaLinkedin className="text-2xl text-[#8c7c6e] cursor-pointer"></FaLinkedin>
+          </div>
           <p className="text-lg">&copy; 2024 Your Website Name. All rights reserved.</p>
       </aside>
       <nav className="font-playfair text-lg">
